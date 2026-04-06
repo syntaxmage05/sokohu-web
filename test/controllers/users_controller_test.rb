@@ -38,4 +38,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :unprocessable_entity
     assert_select "p.is-danger", text: I18n.t("activerecord.errors.models.user.attributes.password.too_short")
   end
+
+  test "can update user details" do
+    @user = users(:jerry)
+    log_in @user
+
+    patch profile_path, params: {
+      user: {
+        name: "Chris Brown"
+      }
+    }
+
+    assert_redirected_to profile_path
+    assert_equal "Chris Brown", @user.reload.name
+  end
 end
