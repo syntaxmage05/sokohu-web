@@ -3,6 +3,8 @@ en:
     new:
       title: "Sign up for SokoHub"
       sign_up: Sign up!
+      login_message: Already got an account?
+      login: Login here.
     create:
       welcome: "Welcome to SokoHub, %{name}"
     show:
