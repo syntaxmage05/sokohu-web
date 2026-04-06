@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  skip_authentication only: [ :new, :create ]
   def new
   end
 
@@ -22,6 +23,6 @@ class SessionsController < ApplicationController
   private
 
   def login_params
-    @login_params ||= params.expect(user: [:email, :password])
+    @login_params ||= params.expect(user: [ :email, :password ])
   end
 end
