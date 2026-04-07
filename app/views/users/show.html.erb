@@ -43,3 +43,16 @@
     </layout-column>
   </layout-columns>
 <% end %>
+<% if turbo_native_app? %>
+  <%= button_to(
+    t("shared.navbar.logout"),
+    logout_path,
+    data: {
+      controller: "bridge--element",
+      bridge_element_android: {
+        component: "menu_item",
+        order: "0"
+      }.to_json
+    }
+  )%>
+<% end %>
