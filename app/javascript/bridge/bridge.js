@@ -18,7 +18,7 @@ export default class Bridge {
   }
   set adapter(adapter) {
     this._adapter = adapter;
-    this.nativeActions = new this.nativeActions();
+    this.nativeActions = new NativeActions();
     this.ready = true;
     this.sendPendingMessages();
   }

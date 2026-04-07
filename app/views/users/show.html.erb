@@ -47,6 +47,7 @@
   <%= button_to(
     t("shared.navbar.logout"),
     logout_path,
+    method: :delete,
     data: {
       controller: "bridge--element",
       bridge_element_id:
