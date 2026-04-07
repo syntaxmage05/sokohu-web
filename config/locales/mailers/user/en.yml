@@ -1,0 +1,10 @@
+en:
+  user_mailer:
+    password_reset:
+      subject: Your Sokohub password reset instructions
+      heading: Reset your Sokohub password
+      body: >
+        Set a new password for Sokohub using the below button.
+        It's valid for 2 hours.
+        If you didn't request this, you can safely ignore this email.
+      button: Set a new password

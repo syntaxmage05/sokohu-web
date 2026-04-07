@@ -68,3 +68,4 @@ group :test do
 end
 
 gem "i18n-debug"
+gem "premailer-rails", "~> 1.11"
