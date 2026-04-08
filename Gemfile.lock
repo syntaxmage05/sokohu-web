@@ -463,6 +463,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kamal
+  letter_opener (~> 1.8)
   letter_opener_web (~> 3.0)
   minitest-reporters
   pg (~> 1.1)
