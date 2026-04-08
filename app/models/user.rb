@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  include Authentication
+  include Authentication, PasswordReset
   has_many :memberships, dependent: :destroy
   has_many :organizations, through: :memberships
   validates :name, presence: true

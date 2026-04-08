@@ -59,6 +59,8 @@ group :development do
   gem "web-console"
   gem 'guard'
   gem "guard-minitest"
+  # gem "letter_opener", "~> 1.8"
+  gem 'letter_opener_web', '~> 3.0'
 end
 
 group :test do

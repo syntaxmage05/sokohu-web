@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       log_in(@app_session)
 
       flash[:success] = t(".welcome", name: @user.name)
-      recede_redirect_to root_path, status: :see_other
+      redirect_to root_path, status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
