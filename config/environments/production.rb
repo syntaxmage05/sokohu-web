@@ -59,7 +59,10 @@ Rails.application.configure do
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: "https://sokohub-k2f4.onrender.com/", protocol: "https" }
+  config.action_mailer.default_url_options = {
+    host: ENV["https://sokohub-k2f4.onrender.com/"],
+    protocol: "https"
+  }
   config.action_mailer.delivery_method = :smtp
 
 config.action_mailer.smtp_settings = {
