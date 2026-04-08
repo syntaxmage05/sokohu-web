@@ -19,7 +19,6 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
-
 development:
   <<: *default
   database: sokohub_development
@@ -81,6 +80,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV["DATABASE_URL"]%>
     database: sokohub_production
     username: sokohub
     password: <%= ENV["SOKOHUB_DATABASE_PASSWORD"] %>
