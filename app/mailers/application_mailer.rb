@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "support@sokohub.com"
+  default from: Rails.application.credentials.dig(:gmail, :username)
   layout "mailer"
 end
