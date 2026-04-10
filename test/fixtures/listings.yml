@@ -1,13 +1,23 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+jerry_listing_1:
+  creator: jerry
+  organization: jerry
+  title: "Jerry Test Listing"
+  price: 100
 
-one:
-  tittle: MyString
-  price: MyString
-  user: one
-  organization: one
+kramer_listing_1:
+  creator: kramer
+  organization: kramer
+  title: "Kramer Test Listing"
+  price: 200
 
-two:
-  tittle: MyString
-  price: MyString
-  user: two
-  organization: two
+elaine_listing_1:
+  creator: elaine
+  organization: elaine
+  title: "Elaine Test Listing"
+  price: 300
+
+george_listing_1:
+  creator: george
+  organization: george
+  title: "George Test Listing"
+  price: 400

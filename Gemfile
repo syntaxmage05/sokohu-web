@@ -61,6 +61,7 @@ group :development do
   gem "guard-minitest"
   gem "letter_opener", "~> 1.8"
   gem 'letter_opener_web', '~> 3.0'
+   gem "faker", "~> 2.21"
 end
 
 group :test do
