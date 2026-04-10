@@ -3,3 +3,5 @@ en:
     new:
       title: Create an ad
       publish: Publish ad
+    create:
+      success: Your ad has been published!

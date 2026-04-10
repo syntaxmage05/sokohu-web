@@ -23,7 +23,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_10_165503) do
   end
 
   create_table "listings", force: :cascade do |t|
-    t.string "tittle"
+    t.string "title"
     t.string "price"
     t.bigint "creator_id"
     t.bigint "organization_id", null: false
