@@ -1,4 +1,7 @@
 class ListingsController < ApplicationController
+  before_action :load_listing, expect: [:new, :create]
+  allow_unauthenticated only: :show
+
   def new
     @listing = Listing.new
   end
@@ -20,6 +23,7 @@ class ListingsController < ApplicationController
   end
 
   def show
+
   end
 
   def edit
@@ -35,5 +39,9 @@ class ListingsController < ApplicationController
 
   def listing_params
     params.expect(listing: [:title, :price])
+  end
+
+  def load_listing
+    @listing = Listing.find(params[:id])
   end
 end
