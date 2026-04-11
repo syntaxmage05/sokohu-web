@@ -12,7 +12,8 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
         listing: {
           title: "New Test Listing",
           price: 150,
-          condition: "mint"
+          condition: "mint",
+          tags: [ "ruby" ]
         }
       }
     end

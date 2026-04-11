@@ -4,6 +4,7 @@ jerry_listing_1:
   title: "Jerry Test Listing"
   price: 100
   condition: mint
+  tags: [ruby, rails, testing]
 
 kramer_listing_1:
   creator: kramer
@@ -11,6 +12,7 @@ kramer_listing_1:
   title: "Kramer Test Listing"
   price: 200
   condition: near_mint
+  tags: [ruby, rails, testing]
 
 elaine_listing_1:
   creator: elaine
@@ -18,6 +20,7 @@ elaine_listing_1:
   title: "Elaine Test Listing"
   price: 300
   condition: mint
+  tags: [ruby, rails, testing]
 
 george_listing_1:
   creator: george
@@ -25,3 +28,4 @@ george_listing_1:
   title: "George Test Listing"
   price: 400
   condition: near_mint
+  tags: [ruby, rails, testing]
