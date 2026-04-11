@@ -13,9 +13,9 @@
               KSH
             </a>
           </p>
-          <p class="control is-expanded">
+          <div class="control is-expanded">
             <%= form.text_field :price, inputmode: :numeric, class: "input" %>
-          </p>
+          </div>
         </form-field>
       </form-field>
       <form-field class="field">
@@ -23,6 +23,9 @@
         <div class="select is-fullwidth">
           <%= form.select :condition, Listing.human_enum_options(:condition) %>
         </div>
+      </form-field>
+      <form-field class="field">
+        <%= render "tags_field", form: form %>
       </form-field>
     </div>
   </layout-column>

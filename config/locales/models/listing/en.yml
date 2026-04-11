@@ -7,3 +7,13 @@ en:
           near_mint: As good as new
           used: Used
           defective: Defective
+    errors:
+      messages:
+        not_a_number: Price should not be empty
+        too_short: The title must exist
+      models:
+        listing:
+          attributes:
+            tags:
+              too_short: You need to specify at least one tag
+              too_long: You can't specify more than 5 tags
