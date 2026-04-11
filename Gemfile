@@ -72,3 +72,4 @@ end
 
 gem "i18n-debug"
 gem "premailer-rails", "~> 1.11"
+gem "iso_country_codes", "~> 0.7.8"
