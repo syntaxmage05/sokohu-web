@@ -3,21 +3,25 @@ jerry_listing_1:
   organization: jerry
   title: "Jerry Test Listing"
   price: 100
+  condition: mint
 
 kramer_listing_1:
   creator: kramer
   organization: kramer
   title: "Kramer Test Listing"
   price: 200
+  condition: near_mint
 
 elaine_listing_1:
   creator: elaine
   organization: elaine
   title: "Elaine Test Listing"
   price: 300
+  condition: mint
 
 george_listing_1:
   creator: george
   organization: george
   title: "George Test Listing"
   price: 400
+  condition: near_mint

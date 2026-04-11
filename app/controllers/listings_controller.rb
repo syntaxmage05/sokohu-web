@@ -1,5 +1,5 @@
 class ListingsController < ApplicationController
-  before_action :load_listing, except: [:new, :create]
+  before_action :load_listing, except: [ :new, :create ]
   allow_unauthenticated only: :show
 
   def new
@@ -31,7 +31,7 @@ class ListingsController < ApplicationController
   def update
     if @listing.update(listing_params)
       redirect_to listing_path(@listing),
-        status: :see_other, flash: { success: t(".success")}
+        status: :see_other, flash: { success: t(".success") }
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +45,7 @@ class ListingsController < ApplicationController
   private
 
   def listing_params
-    params.expect(listing: [:title, :price])
+    params.expect(listing: [ :title, :price, :condition ])
   end
 
   def load_listing

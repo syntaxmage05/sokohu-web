@@ -11,7 +11,8 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
       post listings_path, params: {
         listing: {
           title: "New Test Listing",
-          price: 150
+          price: 150,
+          condition: "mint"
         }
       }
     end
@@ -24,7 +25,8 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
       post listings_path, params: {
         listing: {
           title: "a",
-          price: 300
+          price: 300,
+          condition: "mint"
         }
       }
     end
@@ -40,7 +42,8 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
     patch listing_path(@listing), params: {
       listing: {
         title: new_title,
-        price: @listing.price
+        price: @listing.price,
+        condition: "mint"
       }
     }
 
@@ -54,7 +57,8 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
     patch listing_path(@listing), params: {
       listing: {
         title: @listing.title,
-        price: "NaN"
+        price: "NaN",
+        condition: "mint"
       }
     }
 
