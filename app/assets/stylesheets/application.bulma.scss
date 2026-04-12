@@ -37,6 +37,8 @@
 // @import "bulma/sass/layout/section.sass";
 
 @import "bulma/bulma";
+@import "trix/dist/trix";
+@import "actiontext";
 
 .invisible {
   display: none;
@@ -44,4 +46,8 @@
 
 figure.image img {
   object-fit: cover !important;
+}
+
+trix-editor {
+  min-height: 90%;
 }

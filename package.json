@@ -11,8 +11,10 @@
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.23",
+    "@rails/actiontext": "^8.1.300",
     "@rails/activestorage": "^8.1.300",
     "bulma": "^1.0.4",
-    "sass": "^1.99.0"
+    "sass": "^1.99.0",
+    "trix": "^2.1.18"
   }
 }

@@ -4,3 +4,6 @@ import "./controllers";
 
 import Bridge from "./bridge/bridge";
 window.webBridge = new Bridge();
+
+import "trix"
+import "@rails/actiontext"

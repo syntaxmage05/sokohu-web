@@ -12,12 +12,14 @@ class Listing < ApplicationRecord
   belongs_to :creator, class_name: "User"
   belongs_to :organization
   has_one_attached :cover_photo
+  has_rich_text :description
 
   validates :title, length: { in: 10..100 }
   validates :price, numericality: { only_integer: true }
   validates :condition, presence: true
   validates :tags, length: { in: 1..5 }
   validates :cover_photo, presence: true
+  validates :description, presence: true
 
   before_save :downcase_tags
 
