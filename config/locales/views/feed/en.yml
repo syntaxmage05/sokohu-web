@@ -1,0 +1,5 @@
+en:
+  feed:
+    show:
+      welcome: Welcome to Sokohub
+      welcome_with_name: Welcome to Sokohub, %{name}

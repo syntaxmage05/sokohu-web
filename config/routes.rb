@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :profile, only: [ :show, :update ], controller: "users"
 
   resources :listings, except: :index
+  resource :my_listings, only: :show
 
   namespace :users do
     patch "change_password", to: "passwords#update"

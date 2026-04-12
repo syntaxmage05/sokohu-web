@@ -15,6 +15,8 @@ class Listing < ApplicationRecord
   validates :condition, presence: true
   validates :tags, length: { in: 1..5 }
 
+  scope :feed, -> { order(created_at: :desc).includes(:address) }
+
   before_save :downcase_tags
 
   private
