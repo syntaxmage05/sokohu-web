@@ -33,8 +33,9 @@ class ListingsController < ApplicationController
   def update
     if @listing.update(listing_params)
       flash[:success] = t(".success")
-      recede_redirect_to listing_path(@listing),
+      recede_or_redirect_to listing_path(@listing),
         status: :see_other
+    else
       render :edit, status: :unprocessable_entity
     end
   end
