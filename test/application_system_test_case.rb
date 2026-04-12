@@ -31,7 +31,7 @@ end
 class MobileSystemTestCase < ApplicationSystemTestCase
   setup do
     visit root_path
-    current_window.resize(375, 812)
+    current_window.resize_to(375, 812)
   end
 
   teardown do
