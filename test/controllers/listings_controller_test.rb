@@ -13,7 +13,14 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
           title: "New Test Listing",
           price: 150,
           condition: "mint",
-          tags: [ "ruby" ]
+          tags: [ "ruby" ],
+          address_attributes: {
+                line_1: "123 Street",
+                line_2: "Nairobi",
+                city: "Nairobi",
+                postcode: "00100",
+                country: "KE"
+           }
         }
       }
     end

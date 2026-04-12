@@ -1,11 +1,31 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+jerry_address:
+  addressable: jerry_listing_1 (Listing)
+  line_1: "123 Jerry St"
+  line_2: ""
+  city: "Nairobi"
+  postcode: "00100"
+  country: "KE"
 
-# This model initially had no columns defined. If you add columns to the
-# model remove the "{}" from the fixture names and add the columns immediately
-# below each fixture, per the syntax in the comments below
-#
-one: {}
-# column: value
-#
-two: {}
-# column: value
+kramer_address:
+  addressable: kramer_listing_1 (Listing)
+  line_1: "456 Kramer Ave"
+  line_2: ""
+  city: "Nairobi"
+  postcode: "00200"
+  country: "KE"
+
+elaine_address:
+  addressable: elaine_listing_1 (Listing)
+  line_1: "789 Elaine Rd"
+  line_2: ""
+  city: "Nairobi"
+  postcode: "00300"
+  country: "KE"
+
+george_address:
+  addressable: george_listing_1 (Listing)
+  line_1: "101 George Blvd"
+  line_2: ""
+  city: "Nairobi"
+  postcode: "00400"
+  country: "KE"
