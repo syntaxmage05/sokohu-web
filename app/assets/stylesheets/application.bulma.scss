@@ -41,3 +41,7 @@
 .invisible {
   display: none;
 }
+
+figure.image img {
+  object-fit: cover !important;
+}

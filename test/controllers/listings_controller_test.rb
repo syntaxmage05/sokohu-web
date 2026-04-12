@@ -13,9 +13,10 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
       post listings_path, params: {
         listing: {
           title: "New Test Listing",
+          cover_photo: fixture_file_upload("test-image-1.jpg"),
           price: 150,
           condition: "mint",
-          tags: [ "ruby" ],
+          tags: ["ruby"],
           address_attributes: {
             line_1: "123 Street",
             line_2: "Nairobi",
@@ -53,7 +54,15 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
       listing: {
         title: new_title,
         price: @listing.price,
-        condition: "mint"
+        condition: "mint",
+        address_attributes: {
+          id: @listing.address.id, # 🔥 REQUIRED for update
+          line_1: "123 Street",
+          line_2: "Nairobi",
+          city: "Nairobi",
+          postcode: "00100",
+          country: "KE"
+        }
       }
     }
 

@@ -40,7 +40,7 @@ Rails.application.configure do
 
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "localhost:3000", protocol: "http" }
-  config.action_mailer.default_options = { from: "test@sokohub.test"}
+  config.action_mailer.default_options = { from: "test@sokohub.test" }
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
