@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
@@ -38,11 +40,11 @@ Rails.application.configure do
   # --- Action Mailer (Gmail SMTP) ---
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_caching = false
-  config.action_mailer.perform_deliveries = true  # enable email delivery
+  config.action_mailer.perform_deliveries = true # enable email delivery
 
   # Use ENV variable for your host
   config.action_mailer.default_url_options = {
-    host: ENV["DOMAIN_NAME"],   # e.g., "sokohub-k2f4.onrender.com"
+    host: ENV["DOMAIN_NAME"], # e.g., "sokohub-k2f4.onrender.com"
     protocol: "https"
   }
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListingsController < ApplicationController
   before_action :load_listing, except: [ :new, :create ]
   allow_unauthenticated only: :show
@@ -48,11 +50,11 @@ class ListingsController < ApplicationController
 
   private
 
-  def listing_params
-    params.expect(listing: Listing.permitted_attributes)
-  end
+    def listing_params
+      params.expect(listing: Listing.permitted_attributes)
+    end
 
-  def load_listing
-    @listing = Listing.find(params[:id])
-  end
+    def load_listing
+      @listing = Listing.find(params[:id])
+    end
 end

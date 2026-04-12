@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddConditionEnumToListings < ActiveRecord::Migration[8.0]
   def change
     create_enum :listing_condition,

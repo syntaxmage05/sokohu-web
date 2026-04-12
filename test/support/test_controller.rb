@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TestController < ActionController::Base
   def index; end
   def new; end
@@ -9,7 +11,7 @@ class TestController < ActionController::Base
 
   private
 
-  def default_render
-    render plain: "#{params[:controller]}##{params[:action]}"
-  end
+    def default_render
+      render plain: "#{params[:controller]}##{params[:action]}"
+    end
 end

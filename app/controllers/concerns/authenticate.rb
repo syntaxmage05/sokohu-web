@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Authenticate
   extend ActiveSupport::Concern
 
@@ -21,45 +23,44 @@ module Authenticate
 
   protected
 
-  def logged_in?
-    Current.user.present?
-  end
+    def logged_in?
+      Current.user.present?
+    end
 
-  def log_in(app_session)
-    cookies.encrypted.permanent[:app_session] = {
-      value: app_session.to_h
-    }
-  end
+    def log_in(app_session)
+      cookies.encrypted.permanent[:app_session] = {
+        value: app_session.to_h
+      }
+    end
 
-  def log_out
-    Current.app_session&.destroy
-  end
-
+    def log_out
+      Current.app_session&.destroy
+    end
 
   private
 
-  def require_login
-    flash.now[:notice] = t("login_required")
-    render "sessions/new", status: :unauthorized
-  end
+    def require_login
+      flash.now[:notice] = t("login_required")
+      render "sessions/new", status: :unauthorized
+    end
 
-  def authenticate
-    Current.app_session = authenticate_using_cookie
-    Current.user = Current.app_session&.user
-  end
+    def authenticate
+      Current.app_session = authenticate_using_cookie
+      Current.user = Current.app_session&.user
+    end
 
-  def authenticate_using_cookie
-    app_session = cookies.encrypted[:app_session]
-    authenticate_using app_session&.with_indifferent_access
-  end
+    def authenticate_using_cookie
+      app_session = cookies.encrypted[:app_session]
+      authenticate_using app_session&.with_indifferent_access
+    end
 
-  def authenticate_using(data)
-    # user_id:, app_session:, token: = data
-    data => { user_id:, app_session:, token: }
+    def authenticate_using(data)
+      # user_id:, app_session:, token: = data
+      data => { user_id:, app_session:, token: }
 
-    user = User.find(user_id)
-    user.authenticate_app_session(app_session, token)
-  rescue NoMatchingPatternError, ActiveRecord::RecordNotFound
-    nil
-  end
+      user = User.find(user_id)
+      user.authenticate_app_session(app_session, token)
+    rescue NoMatchingPatternError, ActiveRecord::RecordNotFound
+      nil
+    end
 end

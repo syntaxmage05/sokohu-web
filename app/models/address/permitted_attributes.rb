@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Address::PermittedAttributes
   extend ActiveSupport::Concern
 

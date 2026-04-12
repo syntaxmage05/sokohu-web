@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ActionView::Base.field_error_proc = ->(html_tag, instance) {
   unless html_tag =~ /^<label/
     html = Nokogiri::HTML::DocumentFragment.parse(html_tag)

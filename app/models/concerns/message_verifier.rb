@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module MessageVerifier
   extend ActiveSupport::Concern
 
@@ -9,7 +11,7 @@ module MessageVerifier
 
   private
 
-  def message_verifier
-    self.class.message_verifier
-  end
+    def message_verifier
+      self.class.message_verifier
+    end
 end

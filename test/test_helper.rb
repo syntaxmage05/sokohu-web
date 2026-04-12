@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 require "minitest/reporters"
 Minitest::Reporters.use!
-
 
 Dir[Rails.root.join("test", "support", "**", "*.rb")].each { |f| require f }
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AuthenticationHelpers
   def log_in(user, password: "password")
     post login_path, params: {

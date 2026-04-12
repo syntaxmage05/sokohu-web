@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SessionsController < ApplicationController
   skip_authentication only: [ :new, :create ]
   def new
@@ -26,10 +28,9 @@ class SessionsController < ApplicationController
     redirect_to root_path, status: :see_other
   end
 
-
   private
 
-  def login_params
-    @login_params ||= params.expect(user: [ :email, :password ])
-  end
+    def login_params
+      @_login_params ||= params.expect(user: [ :email, :password ])
+    end
 end

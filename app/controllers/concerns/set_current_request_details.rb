@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SetCurrentRequestDetails
   extend ActiveSupport::Concern
 
@@ -8,7 +10,7 @@ module SetCurrentRequestDetails
 
   private
 
-  def set_current_organization
-    Current.organization = Current.user.organizations.first
-  end
+    def set_current_organization
+      Current.organization = Current.user.organizations.first
+    end
 end

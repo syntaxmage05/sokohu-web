@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class PaginationHelperTest < ActionView::TestCase
@@ -22,7 +24,7 @@ class PaginationHelperTest < ActionView::TestCase
 
   private
 
-  def turbo_native_app?
-    @turbo_native_app
-  end
+    def turbo_native_app?
+      @turbo_native_app
+    end
 end

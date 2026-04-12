@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module User::Authentication
   extend ActiveSupport::Concern
 
@@ -9,7 +11,7 @@ module User::Authentication
 
   class_methods do
     def create_app_session(email:, password:)
-      return nil unless user = User.find_by(email: email.downcase)
+      return nil unless (user = User.find_by(email: email.downcase))
 
       user.app_sessions.create if user.authenticate(password)
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class SessionsControllerTest < ActionDispatch::IntegrationTest
@@ -23,7 +25,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     }
 
     assert_select ".notification",
-                  I18n.t("sessions.create.incorrect_details")
+      I18n.t("sessions.create.incorrect_details")
   end
 
   test "logging out redirects to the root url and deletes the session" do

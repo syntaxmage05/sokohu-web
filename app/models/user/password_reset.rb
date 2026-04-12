@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module User::PasswordReset
   extend ActiveSupport::Concern
 
@@ -16,7 +18,7 @@ module User::PasswordReset
       )&.symbolize_keys => { user_id:, password_reset_token: }
 
       User.find(user_id)
-          .authenticate_password_reset_token(password_reset_token)
+        .authenticate_password_reset_token(password_reset_token)
     rescue ActiveRecord::RecordNotFound, NoMatchingPatternError
       nil
     end
@@ -38,16 +40,17 @@ module User::PasswordReset
 
   private
 
-  def send_password_reset_email
-    UserMailer.with(user: self)
-    .password_reset(CGI.escape(password_reset_id))
-    .deliver_now
-  end
+    def send_password_reset_email
+      UserMailer.with(user: self)
+        .password_reset(CGI.escape(password_reset_id))
+        .deliver_now
+    end
 
-  def password_reset_id
-    message_verifier.generate({
-      user_id: id,
-      password_reset_token: @raw_password_reset_token
-    }, purpose: :password_reset, expires_in: 2.hours)
-  end
+    def password_reset_id
+      message_verifier.generate(
+        {
+          user_id: id,
+          password_reset_token: @raw_password_reset_token
+        }, purpose: :password_reset, expires_in: 2.hours)
+    end
 end

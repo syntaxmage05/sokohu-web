@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class UserMailerTest < ActionMailer::TestCase
@@ -8,9 +10,9 @@ class UserMailerTest < ActionMailer::TestCase
 
   test "password reset" do
     email = UserMailer
-              .with(user: @user)
-              .password_reset("reset_id")
-              .deliver_now
+      .with(user: @user)
+      .password_reset("reset_id")
+      .deliver_now
 
     assert_match @user.name, email[:to].unparsed_value
     assert_match @user.email, email[:to].unparsed_value

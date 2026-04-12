@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class ListingsControllerTest < ActionDispatch::IntegrationTest
@@ -15,12 +17,12 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
           condition: "mint",
           tags: [ "ruby" ],
           address_attributes: {
-                line_1: "123 Street",
-                line_2: "Nairobi",
-                city: "Nairobi",
-                postcode: "00100",
-                country: "KE"
-           }
+            line_1: "123 Street",
+            line_2: "Nairobi",
+            city: "Nairobi",
+            postcode: "00100",
+            country: "KE"
+          }
         }
       }
     end

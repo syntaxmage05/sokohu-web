@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RoutesHelpers
   def draw_test_routes(&block)
     # Don't clear routes when calling 'Rails.application.routes.draw'

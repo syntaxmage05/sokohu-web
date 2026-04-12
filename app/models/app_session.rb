@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppSession < ApplicationRecord
   belongs_to :user
 

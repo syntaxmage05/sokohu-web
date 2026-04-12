@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Users::PasswordsController < ApplicationController
   before_action :authenticate_current_password
 
@@ -14,13 +16,13 @@ class Users::PasswordsController < ApplicationController
 
   private
 
-  def authenticate_current_password
-    @user = Current.user
-    current_password = params.dig(:user, :current_password)
+    def authenticate_current_password
+      @user = Current.user
+      current_password = params.dig(:user, :current_password)
 
-    unless @user.authenticate(current_password)
-      flash.now[:danger] = t(".incorrect_password")
-      render "users/show", status: :unprocessable_entity
+      unless @user.authenticate(current_password)
+        flash.now[:danger] = t(".incorrect_password")
+        render "users/show", status: :unprocessable_entity
+      end
     end
-  end
 end

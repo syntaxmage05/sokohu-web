@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require "test_helper"
 class User::PasswordResetTest < ActiveSupport::TestCase
   include ActionMailer::TestHelper
 
   setup do
-    @user =  users(:jerry)
+    @user = users(:jerry)
     ActionMailer::Base.deliveries.clear
   end
 

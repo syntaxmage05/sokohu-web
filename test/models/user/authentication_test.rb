@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "test_helper"
 
 class User::AuthenticationTest < ActiveSupport::TestCase
@@ -13,7 +15,7 @@ class User::AuthenticationTest < ActiveSupport::TestCase
     assert @user.valid?
 
     max_length = ActiveModel::SecurePassword::MAX_PASSWORD_LENGTH_ALLOWED
-    @user.password = "a" *(max_length + 1)
+    @user.password = "a" * (max_length + 1)
     assert_not @user.valid?
   end
 

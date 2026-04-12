@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 100.times do
   user = User.create(
     name: Faker::Name.name,

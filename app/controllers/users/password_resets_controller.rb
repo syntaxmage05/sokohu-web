@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Users::PasswordResetsController < ApplicationController
   before_action :load_user, only: [ :edit, :update ]
   skip_authentication
@@ -28,17 +30,17 @@ class Users::PasswordResetsController < ApplicationController
 
   private
 
-  def load_user
-    @user = User.find_by_password_reset_id(params[:id])
+    def load_user
+      @user = User.find_by_password_reset_id(params[:id])
 
-    redirect_to new_users_password_reset_path,
-      status: :see_other,
-      flash: {
-        error: t("users.password_resets.invalid_link")
-      } unless @user.present?
-  end
+      redirect_to new_users_password_reset_path,
+        status: :see_other,
+        flash: {
+          error: t("users.password_resets.invalid_link")
+        } unless @user.present?
+    end
 
-  def password_reset_params
-    params.expect(user: [ :password ])
-  end
+    def password_reset_params
+      params.expect(user: [ :password ])
+    end
 end

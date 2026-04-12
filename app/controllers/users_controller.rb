@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   skip_authentication only: [ :new, :create ]
 
@@ -37,11 +39,11 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.expect(user: [ :name, :email, :password ])
-  end
+    def user_params
+      params.expect(user: [ :name, :email, :password ])
+    end
 
-  def update_params
-    params.expect(user: [ :name, :email ])
-  end
+    def update_params
+      params.expect(user: [ :name, :email ])
+    end
 end

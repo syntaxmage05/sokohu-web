@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -50,18 +52,18 @@ group :development, :test do
   gem "brakeman", require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
-  gem "rubocop-rails-omakase", require: false
   gem "minitest-reporters"
+  gem "rubocop-rails-omakase", require: false
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
-  gem 'guard'
+  gem "faker", "~> 2.21"
+  gem "guard"
   gem "guard-minitest"
   gem "letter_opener", "~> 1.8"
-  gem 'letter_opener_web', '~> 3.0'
-   gem "faker", "~> 2.21"
+  gem "letter_opener_web", "~> 3.0"
+  gem "web-console"
 end
 
 group :test do
@@ -71,6 +73,6 @@ group :test do
 end
 
 gem "i18n-debug"
-gem "premailer-rails", "~> 1.11"
 gem "iso_country_codes", "~> 0.7.8"
 gem "pagy", "~> 5.10"
+gem "premailer-rails", "~> 1.11"
