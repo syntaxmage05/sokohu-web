@@ -1,39 +1,49 @@
 <div class="container mt-3">
-  <%= tag.h1 class: "title" do %>
-    <% if logged_in? %>
-      <%= t(".welcome_with_name", name: Current.user.name) %>
-    <% else %>
-      <%= t(".welcome") %>
+  <% unless turbo_native_app? %>
+    <%= tag.h1 class: "title" do %>
+      <% if logged_in? %>
+        <%= t(".welcome_with_name", name: Current.user.name) %>
+      <% else %>
+        <%= t(".welcome") %>
+      <% end %>
     <% end %>
-  <% end unless turbo_native_app? %>
-  <% page = params[:page].to_i || 1 %>
+  <% end %>
+  <% page = params[:page].to_i %>
+  <% page = 1 if page <= 0 %>
   <%= turbo_frame_tag "feed_page_#{page}", target: "_top" do %>
     <layout-columns class="columns is-centered is-multiline">
       <%= render partial: @listings, layout: "listing_layout" %>
     </layout-columns>
-    <%= turbo_frame_tag(
-      "feed_page_#{page + 1}",
-      target: "_top",
-      src: root_path(page: page + 1),
-      loading: :lazy,
-    ) do%>
-    <% end if turbo_native_app? && @pagy.next %>
+    <%# ✅ ONLY native gets infinite scroll frame %>
+    <% if turbo_native_app? && @pagy.next %>
+      <%= turbo_frame_tag(
+        "feed_page_#{page + 1}",
+        target: "_top",
+        src: root_path(page: page + 1),
+        loading: :lazy
+      ) do %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
-<%= tag.div class: "container m-5 mt-6" do %>
-  <%= render "pagy/nav", pagy: @pagy %>
-<% end if show_paginator? %>
-<% if turbo_native_app? %>
-  <%= link_to t("shared.navbar.create_ad"), 
+<%# ✅ ONLY web gets paginator %>
+<% if show_paginator? %>
+  <%= tag.div class: "container m-5 mt-6" do %>
+    <%= render "pagy/nav", pagy: @pagy %>
+  <% end %>
+<% end %>
+<%# ✅ Native-only button %>
+<% if turbo_native_app? && logged_in? %>
+  <%= link_to t("shared.navbar.create_ad"),
         new_listing_path,
         data: {
           controller: "bridge--element",
-          bridge_element_id: 
+          bridge_element_id:
             turbo_native_bridge_element_id(:new_listing),
           bridge_element_android: {
             component: "menu_item",
-            order: "0",
+            order: "0"
           }.to_json
-        } if logged_in?
+        }
   %>
 <% end %>

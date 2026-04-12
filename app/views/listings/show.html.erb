@@ -1,12 +1,10 @@
 <layout-columns class="columns is-centered">
   <layout-column class="column is-10">
-    <%= tag.div class="mb-3" do %>
+    <%= tag.div class: "mb-3" do %>
       <h1 class="title is-inline">
         <%= @listing.title %>
       </h1>
-      <% if @listing.edit? %>
-        <%= link_to t(".edit"), edit_listing_path(@listing) %>
-      <% end %>
+      <%= link_to t(".edit"), edit_listing_path(@listing) %>
     <% end unless turbo_native_app? %>
     <%= render "tags", listing: @listing %>
     <layout-columns class="columns is-centred">
@@ -57,7 +55,7 @@
     </layout-columns>
   </layout-column>
 </layout-columns>
-<% if turbo_native_app? && @listing.edit? %>
+<% if turbo_native_app? %>
   <%= link_to t(".edit"),
         edit_listing_path(@listing),
         data: {
@@ -76,7 +74,7 @@
         data: {
           controller: "bridge--element",
           bridge_element_id: 
-            turbo_native_bridge_element_id(:delete)
+            turbo_native_bridge_element_id(:delete),
           bridge_element_android: {
             component: "menu_item",
             order: "1"
