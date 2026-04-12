@@ -8,38 +8,40 @@
       <% end %>
     <% end %>
   <% end %>
-  <% page = params[:page].to_i %>
+  <% page = (params[:page] || 1).to_i %>
   <% page = 1 if page <= 0 %>
   <%= turbo_frame_tag "feed_page_#{page}", target: "_top" do %>
     <layout-columns class="columns is-centered is-multiline">
       <%= render partial: @listings, layout: "listing_layout" %>
     </layout-columns>
-    <%# ✅ ONLY native gets infinite scroll frame %>
+    <%# Infinite scroll trigger - only for native app %>
     <% if turbo_native_app? && @pagy.next %>
-      <%= turbo_frame_tag(
-        "feed_page_#{page + 1}",
-        target: "_top",
-        src: root_path(page: page + 1),
-        loading: :lazy
-      ) do %>
-      <% end %>
+      <div data-controller="infinite-scroll"
+     data-infinite-scroll-next-page-value="<%= @pagy.next %>"
+     data-infinite-scroll-url-value="<%= root_path(page: @pagy.next) %>"
+     data-infinite-scroll-frame-prefix-value="feed_page"
+     class="has-text-centered p-5 mt-4"
+     style="min-height: 100px;">
+        <div class="is-flex is-justify-content-center">
+          <span class="button is-loading is-light">Loading...</span>
+        </div>
+      </div>
     <% end %>
   <% end %>
 </div>
-<%# ✅ ONLY web gets paginator %>
-<% if show_paginator? %>
+<%# Web pagination %>
+<% if !turbo_native_app? && @pagy.pages > 1 %>
   <%= tag.div class: "container m-5 mt-6" do %>
     <%= render "pagy/nav", pagy: @pagy %>
   <% end %>
 <% end %>
-<%# ✅ Native-only button %>
+<%# Native-only create button %>
 <% if turbo_native_app? && logged_in? %>
   <%= link_to t("shared.navbar.create_ad"),
         new_listing_path,
         data: {
           controller: "bridge--element",
-          bridge_element_id:
-            turbo_native_bridge_element_id(:new_listing),
+          bridge_element_id: turbo_native_bridge_element_id(:new_listing),
           bridge_element_android: {
             component: "menu_item",
             order: "0"
