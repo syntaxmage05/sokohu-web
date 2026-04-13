@@ -74,5 +74,5 @@ end
 
 gem "i18n-debug"
 gem "iso_country_codes", "~> 0.7.8"
-gem "pagy", "~> 5.10"
+gem "pagy", "~> 43.5"
 gem "premailer-rails", "~> 1.11"
