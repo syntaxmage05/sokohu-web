@@ -19,9 +19,14 @@ Rails.application.routes.draw do
       post :draft, to: "drafts#create", on: :collection
       patch :draft, to: "drafts#update"
     end
+
+    resource :saved_listings,
+      only: [:create, :destroy],
+      path: "save"
   end
 
   resource :my_listings, only: :show
+  resource :saved_listings, only: :show
 
   namespace :users do
     patch "change_password", to: "passwords#update"

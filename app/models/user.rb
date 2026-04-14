@@ -4,6 +4,10 @@ class User < ApplicationRecord
   include Authentication, PasswordReset
   has_many :memberships, dependent: :destroy
   has_many :organizations, through: :memberships
+  has_and_belongs_to_many :saved_listings,
+    join_table: "saved_listings",
+    class_name: "Listing"
+
   validates :name, presence: true
   validates :email,
     format: { with: URI::MailTo::EMAIL_REGEXP },
