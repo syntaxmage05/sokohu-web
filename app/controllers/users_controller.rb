@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    drop_breadcrumb t("shared.navbar.profile")
     @user = Current.user
   end
 
