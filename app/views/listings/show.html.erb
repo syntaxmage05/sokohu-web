@@ -6,6 +6,7 @@
       </h1>
       <%= link_to t(".edit"), edit_listing_path(@listing) unless turbo_native_app? %>
     <% end %>
+    <%= render "status", listing: @listing %>
     <%= render "tags", listing: @listing %>
     <div class="has-text-centered">
       <%= link_to url_for(@listing.cover_photo) do %>

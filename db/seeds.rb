@@ -27,6 +27,7 @@ end
     cover_photo: cover_photo_blob,
     price: Faker::Commerce.price.floor,
     condition: Listing.conditions.values.sample,
+    status: Listing.statuses.values.sample,
     description: Faker::Lorem.paragraph,
     tags: Faker::Commerce.send(:categories, 4),
     address_attributes: {

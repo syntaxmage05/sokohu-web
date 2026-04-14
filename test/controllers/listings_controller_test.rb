@@ -29,6 +29,7 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_redirected_to listing_path(Listing.last)
+    assert Listing.last.published?
   end
 
   test "error when creating an invalid listing" do
@@ -68,6 +69,14 @@ class ListingsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to listing_path(@listing)
     assert_equal new_title, @listing.reload.title
+  end
+
+  test "updating a draft listing publishes it" do
+    @listing = listings(:auto_listing_1_jerry)
+    @listing.draft!
+    patch listing_path(@listing)
+    assert_redirected_to listing_path(@listing)
+    assert @listing.reload.published?
   end
 
   test "error when updating a listing with invalid data" do

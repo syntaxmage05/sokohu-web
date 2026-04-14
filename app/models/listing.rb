@@ -2,13 +2,27 @@
 
 class Listing < ApplicationRecord
   include HasAddress, PermittedAttributes
-  scope :feed, -> { order(created_at: :desc).includes(:address).with_attached_cover_photo }
+
+  scope :feed, -> {
+      published
+        .order(created_at: :desc)
+        .includes(:address)
+        .with_attached_cover_photo
+    }
+
   enum :condition, {
     mint: "mint",
     near_mint: "near_mint",
     used: "used",
     defective: "defective"
   }
+
+  enum :status, {
+    draft: "draft",
+    published: "published",
+    expired: "expired"
+  }
+
   belongs_to :creator, class_name: "User"
   belongs_to :organization
   has_one_attached :cover_photo

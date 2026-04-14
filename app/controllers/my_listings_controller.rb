@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class MyListingsController < ApplicationController
-  drop_breadcrumb t("my_listings.show.title")
+  drop_breadcrumb I18n.t("my_listings.show.title")
   def show
     @pagy, @listings = pagy(Current.organization.listings, page: params[:page] || 1)
 
