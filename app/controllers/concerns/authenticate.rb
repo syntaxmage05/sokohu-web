@@ -40,8 +40,13 @@ module Authenticate
   private
 
     def require_login
-      flash.now[:notice] = t("login_required")
-      render "sessions/new", status: :unauthorized
+      if request.method == "GET"
+        flash.now[:notice] = t("login_required")
+        render "sessions/new", status: :unauthorized
+      else
+        flash[:notice] = t("login_required")
+        redirect_to login_path, status: :see_other
+      end
     end
 
     def authenticate
