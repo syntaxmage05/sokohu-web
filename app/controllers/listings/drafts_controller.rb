@@ -13,8 +13,8 @@ class Listings::DraftsController < ApplicationController
     )
 
     if @listing.save
+      flash[:success] = t(".success")
       redirect_to listing_path(@listing),
-        flash: { success: t(".success") },
         status: :see_other
     else
       render "listings/new", status: :unprocessable_entity
@@ -29,9 +29,9 @@ class Listings::DraftsController < ApplicationController
     )
 
     if @listing.save
+      flash[:success] = t(".success")
       redirect_to listing_path(@listing),
-        status: :see_other,
-        flash: { success: t(".success") }
+        status: :see_other
     else
       render "listings/edit", status: :unprocessable_entity
     end
