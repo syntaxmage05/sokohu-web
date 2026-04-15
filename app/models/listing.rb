@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Listing < ApplicationRecord
-  include HasAddress, PermittedAttributes
+  include HasAddress, PermittedAttributes, AccessPolicy
 
   scope :feed, -> {
       published

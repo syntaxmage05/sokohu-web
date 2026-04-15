@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Listings::DraftsController < ApplicationController
+  skip_authorization only: :create
   before_action :load_listing, only: :update
 
   def create
@@ -43,7 +44,7 @@ class Listings::DraftsController < ApplicationController
       params.expect(listing: Listing.permitted_attributes)
     end
 
-    def load_listing
+    def authorizable_resource
       @listing = Listing.find(params[:listing_id])
     end
 end
