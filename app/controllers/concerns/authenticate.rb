@@ -39,16 +39,6 @@ module Authenticate
 
   private
 
-    def require_login
-      if request.method == "GET"
-        flash.now[:notice] = t("login_required")
-        render "sessions/new", status: :unauthorized
-      else
-        flash[:notice] = t("login_required")
-        redirect_to login_path, status: :see_other
-      end
-    end
-
     def authenticate
       Current.app_session = authenticate_using_cookie
       Current.user = Current.app_session&.user
@@ -67,5 +57,15 @@ module Authenticate
       user.authenticate_app_session(app_session, token)
     rescue NoMatchingPatternError, ActiveRecord::RecordNotFound
       nil
+    end
+
+    def require_login
+      if request.method == "GET"
+        flash.now[:notice] = t("login_required")
+        render "sessions/new", status: :unauthorized
+      else
+        flash[:notice] = t("login_required")
+        redirect_to login_path, status: :see_other
+      end
     end
 end

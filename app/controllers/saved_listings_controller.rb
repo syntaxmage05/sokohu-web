@@ -6,9 +6,14 @@ class SavedListingsController < ApplicationController
   def show
     drop_breadcrumb t(".title")
 
-    @pagy, @listings = pagy(Current.user.saved_listings)
+    @pagy, @listings = pagy(Current.user.saved_listings, page: params[:page] || 1)
 
-    render :show
+    # For turbo frame requests, render just the items partial
+    if turbo_frame_request?
+      render partial: "saved_listings_page", locals: { listings: @listings, page: params[:page].to_i, pagy: @pagy }
+    else
+      render :show
+    end
   end
 
   def create

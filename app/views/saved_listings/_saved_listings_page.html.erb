@@ -1,0 +1,24 @@
+<% page = local_assigns[:page] || 1 %>
+<% pagy = local_assigns[:pagy] %>
+<%= turbo_frame_tag "saved_listings_page_#{page}", target: "_top" do %>
+  <layout-columns class="columns is-centered is-multiline">
+    <%= render partial: listings, layout: "feed/listing_layout" %>
+  </layout-columns>
+  <%# Trigger for next page %>
+  <% if pagy.next %>
+    <div data-controller="infinite-scroll"
+         data-infinite-scroll-next-page-value="<%= pagy.next %>"
+         data-infinite-scroll-url-value="<%= saved_listings_path(page: pagy.next) %>"
+         data-infinite-scroll-frame-prefix-value="saved_listings_page"
+         class="has-text-centered p-5 mt-4"
+         style="min-height: 100px;">
+      <div class="is-flex is-justify-content-center">
+        <span class="button is-loading is-light">Loading more saved listings...</span>
+      </div>
+    </div>
+  <% else %>
+    <div class="has-text-centered p-5 mt-4">
+      <p class="has-text-grey">You've reached the end of your saved listings! 🎉</p>
+    </div>
+  <% end %>
+<% end %>
