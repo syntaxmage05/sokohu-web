@@ -31,9 +31,9 @@ module Authorize
     end
 
     def render_forbidden_error
-      render file: "#{Rails.root}/public/404.html",
+      render "errors/403",
         status: :forbidden,
-        layout: false
+        layout: "error"
     end
 
     def authorize_resource
