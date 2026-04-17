@@ -64,6 +64,7 @@ group :development do
   gem "letter_opener", "~> 1.8"
   gem "letter_opener_web", "~> 3.0"
   gem "web-console"
+  gem "dotenv-rails", "~> 2.8"
 end
 
 group :test do
@@ -76,3 +77,6 @@ gem "i18n-debug"
 gem "iso_country_codes", "~> 0.7.8"
 gem "pagy", "~> 5.10"
 gem "premailer-rails", "~> 1.11"
+
+
+gem "sidekiq", "~> 8.1"
