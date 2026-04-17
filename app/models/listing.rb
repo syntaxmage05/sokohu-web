@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class Listing < ApplicationRecord
-  include HasAddress, PermittedAttributes, AccessPolicy
+  include HasAddress, PermittedAttributes,
+    AccessPolicy, Publishable, Expirable
 
   scope :feed, -> {
       published
@@ -41,6 +42,10 @@ class Listing < ApplicationRecord
     return false unless Current.user.present?
 
     Current.user.saved_listings.exists?(id: self.id)
+  end
+
+  def expiry_date
+    published_on.end_of_day + 30.days
   end
 
   private

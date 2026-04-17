@@ -5,6 +5,7 @@ jerry_listing_1:
   price: 100
   condition: mint
   tags: [ruby, rails, testing]
+  published_on: <%= Time.zone.now %>
 
 kramer_listing_1:
   creator: kramer
@@ -13,6 +14,7 @@ kramer_listing_1:
   price: 200
   condition: near_mint
   tags: [ruby, rails, testing]
+  published_on: <%= Time.zone.now %>
 
 elaine_listing_1:
   creator: elaine
@@ -21,6 +23,7 @@ elaine_listing_1:
   price: 300
   condition: mint
   tags: [ruby, rails, testing]
+  published_on: <%= Time.zone.now %>
 
 george_listing_1:
   creator: george
@@ -29,3 +32,4 @@ george_listing_1:
   price: 400
   condition: near_mint
   tags: [ruby, rails, testing]
+  published_on: <%= Time.zone.now %>

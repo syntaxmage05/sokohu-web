@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_14_191918) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_17_003345) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -88,6 +88,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_14_191918) do
     t.enum "condition", enum_type: "listing_condition"
     t.string "tags", array: true
     t.enum "status", default: "published", enum_type: "listing_status"
+    t.datetime "published_on"
     t.index ["creator_id"], name: "index_listings_on_creator_id"
     t.index ["organization_id"], name: "index_listings_on_organization_id"
   end
