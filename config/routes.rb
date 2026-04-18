@@ -31,7 +31,9 @@ Rails.application.routes.draw do
 
   resource :my_listings, only: :show
   resource :saved_listings, only: :show
-  resource :search, only: :show, controller: "feed/searches"
+  resource :search, only: :show, controller: "feed/searches" do
+    get "tags/:tag", to: "feed/searches/tags#show", as: "tags"
+  end
 
   namespace :users do
     patch "change_password", to: "passwords#update"

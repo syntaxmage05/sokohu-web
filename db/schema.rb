@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_04_18_114340) do
+ActiveRecord::Schema[8.0].define(version: 2026_04_18_144640) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -96,6 +96,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_04_18_114340) do
     t.index ["creator_id"], name: "index_listings_on_creator_id"
     t.index ["organization_id"], name: "index_listings_on_organization_id"
     t.index ["searchable"], name: "index_listings_on_searchable", using: :gin
+    t.index ["tags"], name: "index_listings_on_tags", using: :gin
   end
 
   create_table "memberships", force: :cascade do |t|
