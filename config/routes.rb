@@ -31,9 +31,11 @@ Rails.application.routes.draw do
 
   resource :my_listings, only: :show
   resource :saved_listings, only: :show
+  resource :search, only: :show, controller: "feed/searches"
 
   namespace :users do
     patch "change_password", to: "passwords#update"
     resources :password_resets, only: [ :new, :create, :edit, :update ]
   end
+
 end

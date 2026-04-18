@@ -3,3 +3,6 @@ en:
     show:
       welcome: Welcome to Sokohub
       welcome_with_name: Welcome to Sokohub, %{name}
+    search:
+      query_placeholder: What are you looking for?
+      search: Search for ads

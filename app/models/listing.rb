@@ -2,7 +2,7 @@
 
 class Listing < ApplicationRecord
   include HasAddress, PermittedAttributes,
-    AccessPolicy, Publishable, Expirable
+    AccessPolicy, Publishable, Expirable, Searchable
 
   scope :feed, -> {
       published
