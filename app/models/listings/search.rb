@@ -3,8 +3,8 @@
 class Listings::Search
   include ActiveModel::Model
   attr_accessor :query, :location, :tags
-  
-  def initialize(attributes={})
+
+  def initialize(attributes = {})
     super
 
     self.query = nil unless query.present?

@@ -15,7 +15,7 @@ class Feed::Searches::TagsController < ApplicationController
 
   private
 
-  def unescape_tag
-    @tag = CGI.unescape(params[:tag])
-  end
+    def unescape_tag
+      @tag = CGI.unescape(params[:tag])
+    end
 end
