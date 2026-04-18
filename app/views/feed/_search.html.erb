@@ -1,6 +1,6 @@
 <%= form_with(
+  model: search,
     url: search_path,
-    scope: :listings_search,
     method: :get,
     class: "block box"
 ) do |f| %>
@@ -10,6 +10,11 @@
         <%= f.text_field :query, placeholder: t(".query_placeholder"), class: "input", required: true %>
       </form-field>
     </layout-column>
+    <%# <layout-column class="column"> %>
+    <%# <form-field class="field"> %>
+    <%# <%= f.text_field :location, placeholder: t(".location_placeholder"), class: "input" %>
+    <%# </form-field> %>
+    <%# </layout-column> %>
   </layout-columns>
   <layout-group class="buttons is-right">
     <%= f.submit t(".search"), name: "", class: "button is-primary"%>

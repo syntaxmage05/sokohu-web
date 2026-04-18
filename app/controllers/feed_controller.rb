@@ -4,6 +4,7 @@ class FeedController < ApplicationController
   allow_unauthenticated only: :show
 
   def show
+    @search = Listings::Search.new
     @pagy, @listings = pagy(Listing.feed, page: params[:page] || 1)
 
     # For turbo frame requests, render just the items partial

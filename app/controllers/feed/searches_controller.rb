@@ -8,9 +8,8 @@ class Feed::SearchesController < ApplicationController
   end
 
   def show
-    @pagy, @listings = pagy(
-      Listing.feed.search(search_params[:query])
-    )
+    @search = Listings::Search.new(search_params)
+    @pagy, @listings = pagy(@search.perform)
 
     render "feed/show"
   end
@@ -18,6 +17,6 @@ class Feed::SearchesController < ApplicationController
   private
 
     def search_params
-      params.expect(listings_search: [:query])
+      params.expect(listings_search: [:query, :location])
     end
 end

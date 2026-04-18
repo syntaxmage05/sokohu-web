@@ -5,6 +5,8 @@ jerry_address:
   city: "Nairobi"
   postcode: "00100"
   country: "KE"
+  latitude: 51.44581075
+  longitude: -0.21145055411144628
 
 kramer_address:
   addressable: kramer_listing_1 (Listing)
@@ -13,6 +15,8 @@ kramer_address:
   city: "Nairobi"
   postcode: "00200"
   country: "KE"
+  latitude: 51.44581075
+  longitude: -0.21145055411144628
 
 elaine_address:
   addressable: elaine_listing_1 (Listing)
@@ -21,6 +25,8 @@ elaine_address:
   city: "Nairobi"
   postcode: "00300"
   country: "KE"
+  latitude: 51.44581075
+  longitude: -0.21145055411144628
 
 george_address:
   addressable: george_listing_1 (Listing)
@@ -29,3 +35,5 @@ george_address:
   city: "Nairobi"
   postcode: "00400"
   country: "KE"
+  latitude: 51.44581075
+  longitude: -0.21145055411144628

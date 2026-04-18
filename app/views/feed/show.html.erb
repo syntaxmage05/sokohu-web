@@ -8,7 +8,7 @@
       <% end %>
     <% end %>
   <% end %>
-  <%= render "feed/search" %>
+  <%= render "feed/search", search: @search %>
   <% page = (params[:page] || 1).to_i %>
   <% page = 1 if page <= 0 %>
   <%= turbo_frame_tag "feed_page_#{page}", target: "_top" do %>

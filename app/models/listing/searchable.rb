@@ -25,9 +25,15 @@ module Listing::Searchable
         websearch_to_tsquery
       )
 
-      select(Arel.star, ts_rank.as("rank"))
+      select(arel_table[Arel.star], ts_rank.as("rank"))
         .where(where)
         .order("rank DESC")
+    }
+
+    scope :near, -> (location) {
+      select(Arel.star)
+        .joins(:address)
+        .merge(Address.near(location))
     }
   end
 end

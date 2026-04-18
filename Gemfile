@@ -58,13 +58,13 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem "dotenv-rails", "~> 2.8"
   gem "faker", "~> 2.21"
   gem "guard"
   gem "guard-minitest"
   gem "letter_opener", "~> 1.8"
   gem "letter_opener_web", "~> 3.0"
   gem "web-console"
-  gem "dotenv-rails", "~> 2.8"
 end
 
 group :test do
@@ -78,7 +78,8 @@ gem "iso_country_codes", "~> 0.7.8"
 gem "pagy", "~> 5.10"
 gem "premailer-rails", "~> 1.11"
 
-
 gem "sidekiq", "~> 8.1"
 
 gem "sidekiq-cron", "~> 2.3"
+
+gem "geocoder", "~> 1.3", ">= 1.3.7"
