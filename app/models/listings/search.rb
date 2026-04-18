@@ -9,7 +9,15 @@ class Listings::Search
 
     self.query = nil unless query.present?
     self.location = nil unless location.present?
-    self.tags = nil unless tags&.compact_blank.present?
+    self.tags =
+  case tags
+  when String
+    tags.split(",").map(&:strip).reject(&:blank?)
+  when Array
+    tags.compact_blank
+  else
+    []
+  end.presence
   end
 
   def perform
