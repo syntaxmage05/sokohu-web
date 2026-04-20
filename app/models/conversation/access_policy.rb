@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Conversation::AccessPolicy
-  def show?
-    Current.organization == seller || Current.organization == buyer
+  def show?(organization = Current.organization)
+    organization == seller || organization == buyer
   end
 
   def can_message?
