@@ -15,10 +15,10 @@ class ConversationsChannel < ApplicationCable::Channel
   private
 
     def stream_name
-      @stream_name ||= verified_stream_name_from_params
+      @_stream_name ||= verified_stream_name_from_params
     end
 
     def conversation
-      @conversation ||= GlobalID::Locator.locate(stream_name)
+      @_conversation ||= GlobalID::Locator.locate(stream_name)
     end
 end

@@ -22,12 +22,12 @@ class MessageTest < ActiveSupport::TestCase
   private
 
     def signed_stream_name
-      @signed_stream_name ||=
+      @_signed_stream_name ||=
       ConversationsChannel.signed_stream_name(@conversation)
     end
 
     def stream_name
-      @stream_name ||=
+      @_stream_name ||=
       ConversationsChannel.verified_stream_name(signed_stream_name)
     end
 end
