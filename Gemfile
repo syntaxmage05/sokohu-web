@@ -84,3 +84,4 @@ gem "sidekiq-cron", "~> 2.3"
 
 gem "geocoder", "~> 1.3", ">= 1.3.7"
 gem "local_time", "~> 2.1"
+gem "browser", "~> 5.3"

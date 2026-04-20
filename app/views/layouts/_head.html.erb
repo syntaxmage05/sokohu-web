@@ -13,5 +13,5 @@
 <link rel="apple-touch-icon" href="/icon.png">
 <%# Includes all stylesheet files in app/assets/stylesheets %>
 <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
-<%= stylesheet_link_tag "mobile", "data-turbo-track": "reload" if turbo_native_app? %>
+<%= stylesheet_link_tag "mobile", "data-turbo-track": "reload" if request.variant.mobile? %>
 <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>

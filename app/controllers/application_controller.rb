@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include SetRequestVariant
   include Authenticate
   include SetCurrentRequestDetails
   include Authorize
