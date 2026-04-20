@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     scope module: :listings do
       post :draft, to: "drafts#create", on: :collection
       patch :draft, to: "drafts#update"
+
+      resource :contact, only: [:show], controller: "contact"
     end
 
     resource :saved_listings,
@@ -40,4 +42,7 @@ Rails.application.routes.draw do
     resources :password_resets, only: [ :new, :create, :edit, :update ]
   end
 
+  resources :conversations, only: [] do
+    resources :messages, only: [:create]
+  end
 end

@@ -1,0 +1,8 @@
+<%= tag.messages_container id: dom_id(conversation, :messages),
+        data: {
+            controller: "messages"
+        },
+        class: "p-4" do 
+%>
+  <%= render conversation.messages.for_display %>
+<% end %>

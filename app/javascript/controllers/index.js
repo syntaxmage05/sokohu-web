@@ -13,6 +13,12 @@ application.register("image-upload", ImageUploadController)
 import InfiniteScrollController from "./infinite_scroll_controller"
 application.register("infinite-scroll", InfiniteScrollController)
 
+import MessagesController from "./messages_controller"
+application.register("messages", MessagesController)
+
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 

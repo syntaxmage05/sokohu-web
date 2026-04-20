@@ -5,5 +5,7 @@ import "./controllers";
 import Bridge from "./bridge/bridge";
 window.webBridge = new Bridge();
 
-import "trix"
-import "@rails/actiontext"
+import "trix";
+import "@rails/actiontext";
+import LocalTime from "local-time";
+LocalTime.start();
