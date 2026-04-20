@@ -133,5 +133,4 @@ The repository includes a `render.yaml` for Render deployment:
 - Letter Opener is mounted in development for email previewing.
 - Mobile-specific templates are supported for select views.
 
----
-If you want, I can also generate a shorter **public/open-source README** variant and a separate **CONTRIBUTING.md** for onboarding new contributors.
+
