@@ -10,11 +10,16 @@ module SetRequestVariant
   private
 
     def set_request_variant
-      browser = Browser.new(request.user_agent)
-      if browser.device.mobile?
+      if turbo_native_app?
         request.variant = :mobile
       else
-        request.variant = :desktop
+        browser = Browser.new(request.user_agent)
+
+        if browser.device.mobile?
+          request.variant = :mobile
+        else
+          request.variant = :desktop
+        end
       end
     end
 end
