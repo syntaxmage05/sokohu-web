@@ -14,4 +14,7 @@
       <%= f.submit t(".send"), class: "button is-primary" %>
     </layout-group>
   <% end %>
+  <%= turbo_stream.switch_class(
+    dom_id(@conversation), "is-active"
+  )%>
 <% end %>

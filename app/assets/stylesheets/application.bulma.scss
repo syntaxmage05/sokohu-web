@@ -37,6 +37,10 @@ $content-space: calc(100vh - 3.25rem);
   overflow-y: scroll;
 }
 
+#conversations .is-active {
+  border: 2px solid #de911d;
+}
+
 turbo-frame#conversation {
   form {
     height: 8em;
