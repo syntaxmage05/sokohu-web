@@ -19,7 +19,7 @@ Rails.application.configure do
   config.public_file_server.headers = { "cache-control" => "public, max-age=#{1.year.to_i}" }
 
   # Active Storage local service
-  config.active_storage.service = :local
+  config.active_storage.service = :s3
 
   # Force SSL and secure cookies
   config.assume_ssl = true

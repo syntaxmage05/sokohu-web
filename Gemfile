@@ -87,3 +87,4 @@ gem "geocoder", "~> 1.3", ">= 1.3.7"
 gem "local_time", "~> 2.1"
 
 gem "redis", "~> 5.0"
+gem "aws-sdk-s3", require: false
