@@ -58,7 +58,7 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "dotenv-rails", "~> 2.8"
+  gem "dotenv-rails", "~> 3.2"
   gem "faker", "~> 2.21"
   gem "guard"
   gem "guard-minitest"
